@@ -1,0 +1,108 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>CyC</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo2.0.png' %}">
+</head>
+<body>
+    <style>
+        a img:hover
+        {
+            opacity: 0.2;
+        }
+        .container-fluid {
+           background-image: url("{% static 'img/background.jpg' %}") ;
+           opacity:0.8;
+          min-height: 100%;
+
+        }
+        body,html
+        {
+            height: 100%;
+        }
+        .social 
+        {
+            color: #45A2C1;
+        }
+        .socialFace:hover
+        {
+            color: blue;
+        }
+        .socialTwitter:hover
+        {
+            color: cadetblue;
+        }
+        .socialInsta:hover
+        {
+            color: pink;
+        }
+        .socialMail:hover
+        {
+            color: red;
+        }
+        h1,p
+        {
+            color: white
+        }
+    </style>
+
+<div class="container-fluid">
+      <ul  class=" row nav justify-content-center m-2" style="background: black;opacity:0.9;" > 
+            <a href="{% url 'index' %}" class="nav-link mt-2"><img src="" style="height: 40px; width: 200px;" class="img-fluid rounded" alt="" srcset=""></a>
+            {% if user.is_authenticated %}
+            <li class="nav-item align-items-center d-flex m-2" >
+                    <a name="" id="" class="btn btn-outline-primary text-center mr-2 mt-2" href="{% url 'principal:menu' %}" role="button"><i class="far fa-user mr-2" style="font-size: 30px"></i>Ver cuenta</a>
+            </li>
+            <li class="nav-item align-items-center d-flex m-2" >
+                    <a name="" id="" class="btn btn-outline-primary text-center mr-2 mt-2" href="{% url 'logout' %}" role="button"><i class= "fas fa-sign-out-alt mr-2" style="font-size: 30px"></i>Salir</a>
+            </li>
+            {% else %}
+            <li class="nav-item align-items-center d-flex m-2" >
+                    <a class="nav-link " href="{% url 'login' %}"  style="color:mintcream; font-weight: bolder">Ingresar</a>
+                </li>
+                <li class="nav-item align-items-center d-flex m-2">
+                    <a class="nav-link " href="{% url 'registrar' %}" style="color:mintcream; font-weight: bolder;">Registrate</a>
+                </li>
+            {% endif %}
+           
+        </ul>
+    <div class="row  justify-content-center m-4"  >
+        <div class="col-12 col-md-6 p-4 m-5"style="opacity: 2;" >
+           <div class="col-12 text-left" style="opacity:2;">
+                <h1 style="font-weight: bolder;font-size: 30px">¿Que es CyC ?</h1>
+                <p >Aquí se pondrá lo que caracteriza a la empresa
+                    </p>
+           </div>
+
+           <div class="col-12 justify-content-first" style="margin: 30px 0px 30px 0px;">
+                <h2 style="color:white">¿Por qué estamos capacitados para esto?</h2>
+            <p >
+
+                        Aquí ellos pondrían su descripción
+                        </p>
+           </div>
+        </div>
+     </div>
+</div>
+<footer class="footer" >
+        <footer class="footer "style="background: black;opacity:0.9;">
+            <div class=" text-center center-block" >
+                 <a href="#"><i  class="socialFace fab fa-facebook fa-3x social" ></i></a>
+                    <a href="#"><i class="socialTwitter fab fa-twitter fa-3x social"></i></a>
+                    <a href="#"><i class="socialInsta fab fa-instagram fa-3x social"></i></a>
+                    <a href="#"><i class="socialMail fa fa-envelope-square fa-3x social"></i></a>
+                    <p style="color:white;font-weight: bolder ">© 2019 CyC </p>
+                   
+        </div>
+     </footer>
+     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</body>
+</html>

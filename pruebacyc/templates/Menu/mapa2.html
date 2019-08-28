@@ -1,0 +1,54 @@
+{% extends 'Menu/base.html' %}
+{% block title %}Mapa{% endblock title %}
+{% block arrendar %}
+<style>
+    #mapa
+    {
+        height: 350px;
+        width: 100%;
+    }
+</style>
+    <h1>Planificación</h1>
+    <div id="mapa" class="capas"></div>
+    <div id="datos" class="capas">
+            <div id="form">
+                <form method="post" id="form_coords2">{% csrf_token %}
+                    {{ form.as_p }}
+                    <p>
+                        <input type="submit" id="guardar" value="Terminar Viaje">
+                    </p>
+                </form>
+            </div>
+           
+        </div>
+<script>
+    function initMap()
+    {
+        var options = {
+            zoom:16,
+            center:{lat:-33.453728,lng:-70.525542}
+        }
+        var map = new
+        google.maps.Map(document.getElementById('mapa'),options);
+
+        //marcador
+        var marker = new google.maps.Marker({
+            position:{lat:-33.453728,lng:-70.525542},
+            map:map,
+            icon:'../static/img/iconBICI.png'
+        });
+        var informacion = new google.maps.InfoWindow({
+            content:'<a name="" id="id_BICI" class="btn btn-primary" href="http://127.0.0.1:8000/principal/bicis"  role="button">Ver bicicletas</a>'
+        });
+        marker.addListener('click',function(){
+            informacion.open(map,marker);
+        });
+        
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAh-eWM4l_Da6RZPHS1TMuUl5yt2MPPwQ&callback=initMap"
+    async defer></script>
+
+{% endblock arrendar %}
+    
+

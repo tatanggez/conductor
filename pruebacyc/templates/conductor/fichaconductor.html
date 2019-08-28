@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Registro conductor</title>
+    
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo2.0.png' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<style>
+        body
+        {
+                background: black;
+        }
+        .inic:hover
+        {
+            opacity: 0.6;
+        }
+</style>
+
+
+  <body>
+    <div class="container-fluid">
+        <div class="row ">
+          <div class="col-12 col-md-8 align-self-center mt-3">
+             <a class="navbar-brand btn-outline-light"  href="{% url 'index' %}"><img class="img-fluid" src="{% static 'img/logo2.0.png' %}" width="50" height="50"></a>
+          </div>
+          <div class="col-12 col-md-4 align-self-center mt-2">
+                <a name="" id="" class="btn btn-outline-light  d-block" href="{% url 'login' %}" role="button">Inicia sesion</a>
+          </div>
+          
+        </div>
+        <div class="jumbotron" style="margin: 20px 0;">
+                <div class="row justify-content-center">
+                        <h1  style="margin: 30px 0; font-size: 25px; ">Registra tu cuenta</h1>
+                </div>
+                <form method="POST"  enctype='multipart/form-data' class="text-center justify-content-center row "style="background-color: white;padding: 30px 0">
+                    {% csrf_token %}
+                        <div class="col-12 col-md-6 ">
+                            <h1 style="margin: 30px 0; font-size: 25px">Datos personales</h1>
+                            {{form_conductor}}        
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h1 style="margin: 30px 0; font-size: 25px">Escoja su vehiculo</h1>
+                               {{form_vehiculo}}
+                            <h1 style="margin: 30px 0; font-size: 25px">Escoja su tipo de licencia</h1>
+                               {{form_licencia}}
+                            <h1 style="margin: 30px 0; font-size: 25px">Datos de usuario</h1>
+                            {{form_Reg.as_p}}
+                        </div>
+                        <div class="form-check-inline col-8 justify-content-center">
+                                <label class="form-check-label" style="margin: 20px 0;">
+                                  <input type="checkbox" class="form-check-input" value="">¿Acepta terminos y condiciones?
+                                </label>
+                              </div>
+                        
+                        <div class="form-group col-8 justify-content-center">
+                                 <input class="btn btn-primary btn-block btn-success" value="Enviar" type="submit">
+                        </div>
+                    </form>
+        </div>
+<footer class="footer" >
+        <footer class="footer "style="background: black;opacity:0.9;">
+            <div class=" text-center center-block" >
+                 <a href="#"><i  class="socialFace fab fa-facebook fa-3x social" ></i></a>
+                    <a href="#"><i class="socialTwitter fab fa-twitter fa-3x social"></i></a>
+                    <a href="#"><i class="socialInsta fab fa-instagram fa-3x social"></i></a>
+                    <a href="#"><i class="socialMail fa fa-envelope-square fa-3x social"></i></a>
+                    <p style="color:white;font-weight: bolder ">© 2019 CyC </p>
+                   
+        </div>
+     </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+
+</html>

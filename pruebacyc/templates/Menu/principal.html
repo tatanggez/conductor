@@ -1,0 +1,19 @@
+{% extends 'Menu/base.html' %}
+{% block title %}Inicio{% endblock title %}
+{% block inicio %}
+<style>
+</style>
+<div class="jumbotron container h-75 w-75 mt-5">
+  <h1 style="font-weight: bolder;font-size: 30px">¡ Bienvenido de vuelta !</h1>
+  <hr class="my-2">
+  <p class="lead">Conductor:</p>
+  {% for g in Conductor  %}
+    {{g.pNombre}} {{g.apPaterno}} 
+  {% endfor %}    
+  <hr style="margin: 0px 0px 30px 0px">
+    <p class="lead">
+       <a name="" id="" class="btn btn-outline-info text-center mr-2 mt-2" href="{% url 'principal:editar' user.id %}" role="button"><i class="fas fa-edit mr-2" style="font-size: 30px"></i>Editar perfil</a>
+    </p>
+</div>
+{% endblock inicio %}
+    

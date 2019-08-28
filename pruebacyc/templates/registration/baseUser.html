@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="es">
+<head>
+    <title>CyC Conductor</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/ingresar.css' %}" rel="stylesheet">
+</head>
+<body class="text-center">
+    <style>
+        body{
+            background-color: black;
+        }
+    </style>
+        <div class="container" >
+            <form class="form-signin back"style="background-color: whitesmoke;" method="POST">
+                
+                {% csrf_token %}
+                {% block content %}
+                    
+
+                {% endblock content %}
+                <p class="mt-5 mb-3 text-muted">© CyC 2019</p>
+              </form>
+        </div>
+    </body></html>

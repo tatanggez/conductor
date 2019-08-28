@@ -1,0 +1,116 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <title>Menu conductor CyC | {% block title %}{% endblock title %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo2.0.png' %}">
+    
+      
+</head>
+<body>
+    <style>
+        body,html
+        {
+            height: 100%;
+        }
+            a img:hover
+            {
+                opacity: 0.2;
+            }
+            .container-fluid {
+               background-image: url("{% static 'img/background.jpg' %}") ;
+               opacity:0.8;
+              min-height: 100%;
+    
+            }
+            .social 
+            {
+                color:#45A2C1;
+            }
+            .socialFace:hover
+            {
+                color: blue;
+            }
+            .socialTwitter:hover
+            {
+                color: cadetblue;
+            }
+            .socialInsta:hover
+            {
+                color: pink;
+            }
+            .socialMail:hover
+            {
+                color: red;
+            }
+            
+    </style>
+            <nav class="navbar navbar-expand-lg navbar-light" style="background: #0B4050;opacity:0.9;">
+                    <a class="navbar-brand btn-outline-light"  href="{% url 'index' %}"><img class="img-fluid" src="{% static 'img/logo2.0.png' %}" width="50" height="50"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                      <ul class="navbar-nav m-auto">
+                        <li class="nav-item">
+                                <a class="nav-link" href="{% url 'principal:menu' %}" style="color:white"><i class="fas fa-home mr-1" style='color:#45A2C1'></i>Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'principal:mapeo' %}" style="color:white"><i class="fas fa-car mr-1"style='color:#45A2C1'></i>Mapa interactivo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color:white"><i class="fas fa-chart-line mr-1"style='color:#45A2C1'></i>Consultar reportes</a>
+                        </li>
+                        {% if request.user.is_staff %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" style="color:white"><i class="fas fa-users mr-1"style='color:#45A2C1'></i>Gestionar cuentas</a>
+                        </li>
+                        {% endif %}
+
+                      </ul>
+                      <div class="dropdown open mt-2 mr-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                              {{user}}
+                            </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                          <a class="dropdown-item" href="{% url 'principal:editar' user.id %}">Ver perfil</a>
+                          <a class="dropdown-item" href="{% url 'cambiaPASS' %}">Cambiar contraseña</a>
+                        </div>
+                      </div>
+                      <a name="" id="" class="btn btn-outline-danger text-center mr-2 mt-2" href="{% url 'logout' %}" role="button"><i  style="background:white;"></i>Salir</a>
+                    </div>
+                  </nav>    
+                  <div>
+                    {% block inicio %} 
+                    {% endblock inicio %}
+                    {% block arrendar %}
+                    {% endblock arrendar %}
+                  </div>  
+                    
+                    
+        
+        
+         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <footer class="footer" >
+        <footer class="footer "style="background: #0B4050;opacity:0.9;">
+            <div class=" text-center center-block" >
+                 <a href="#"><i  class="socialFace fab fa-facebook fa-3x social" ></i></a>
+                    <a href="#"><i class="socialTwitter fab fa-twitter fa-3x social"></i></a>
+                    <a href="#"><i class="socialInsta fab fa-instagram fa-3x social"></i></a>
+                    <a href="#"><i class="socialMail fa fa-envelope-square fa-3x social"></i></a>
+                    <p style="color:white;font-weight: bolder ">© 2019 CyC </p>
+                   
+        </div>
+     </footer>
+</body>
+</html>

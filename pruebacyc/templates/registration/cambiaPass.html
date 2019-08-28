@@ -1,0 +1,10 @@
+{% extends 'registration/baseUser.html' %}
+{% block title %}Cambia contraseña{% endblock title %}
+{% block content %}
+<h2>Cambia tu contraseña</h2>
+<p>{{user}}</p>
+{{form.as_p}}
+<button class="btn btn-lg btn-outline-success btn-block" type="submit">Guardar cambios</button>
+{% endblock content %}
+    
+    
